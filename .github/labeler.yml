@@ -1,0 +1,18 @@
+test:
+  - "**/*_test.go"
+  - "**/testdata/**"
+  - "**/test/**"
+
+documentation:
+  - "**/*.md"
+  - "**/*.txt"
+
+dependencies:
+  - "**/go.mod"
+  - "**/go.sum"
+
+infrastructure:
+  - "**/Dockerfile"
+  - "**/docker-compose.yml"
+  - "**/Makefile"
+  - "**/scripts/**"
