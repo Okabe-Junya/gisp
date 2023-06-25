@@ -37,7 +37,10 @@ func Lexer(input string) ([]Token, error) {
 			i++
 		case isOperator(char):
 			j := i
-			for ; j < len(input) && isOperator(string(input[j])); j++ {
+			for ; j < len(input); j++ {
+				if !isOperator(string(input[j])) {
+					break
+				}
 			}
 			tokens = append(tokens, Token{
 				"operator",
@@ -46,7 +49,10 @@ func Lexer(input string) ([]Token, error) {
 			i = j
 		case unicode.IsDigit(rune(char[0])):
 			j := i
-			for ; j < len(input) && unicode.IsDigit(rune(input[j])); j++ {
+			for ; j < len(input); j++ {
+				if !unicode.IsDigit(rune(input[j])) {
+					break
+				}
 			}
 			tokens = append(tokens, Token{
 				"number",
@@ -55,7 +61,10 @@ func Lexer(input string) ([]Token, error) {
 			i = j
 		case unicode.IsLetter(rune(char[0])):
 			j := i
-			for ; j < len(input) && unicode.IsLetter(rune(input[j])); j++ {
+			for ; j < len(input); j++ {
+				if !unicode.IsLetter(rune(input[j])) {
+					break
+				}
 			}
 			tokens = append(tokens, Token{
 				"identifier",
