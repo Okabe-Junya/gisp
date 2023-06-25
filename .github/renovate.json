@@ -1,6 +1,28 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base"
-  ]
+    "config:base",
+    ":timezone(Asia/Tokyo)",
+    ":prHourlyLimitNone",
+    ":automergePatch"
+  ],
+
+  "labels": [
+    "dependencies",
+    "renovate"
+  ],
+
+  "schedule": [
+    "after 3am and before 9am every weekday"
+  ],
+
+  "dependencyDashboard": true,
+
+  "golang": {
+    "commitMessageTopic": "module {{depName}}",
+    "postUpdateOptions": [
+      "gomodTidy",
+      "gomodUpdateImportPaths"
+    ]
+  }
 }
