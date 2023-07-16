@@ -7,22 +7,22 @@
     ":automergePatch"
   ],
 
-  "labels": [
-    "dependencies",
-    "renovate"
-  ],
+  "labels": ["dependencies", "renovate"],
 
-  "schedule": [
-    "after 3am and before 9am every weekday"
-  ],
+  "schedule": ["after 3am and before 9am every weekday"],
 
   "dependencyDashboard": true,
 
   "golang": {
     "commitMessageTopic": "module {{depName}}",
-    "postUpdateOptions": [
-      "gomodTidy",
-      "gomodUpdateImportPaths"
-    ]
-  }
+    "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"]
+  },
+
+  "regexManagers": [
+    {
+      "fileMatch": [".*y[a]?ml$"],
+      "matchStrings": ["go install (?<depName>[^@]+?)@(?<currentValue>.+)\n"],
+      "datasourceTemplate": "go"
+    }
+  ]
 }
