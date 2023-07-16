@@ -7,8 +7,6 @@
     ":automergePatch"
   ],
 
-  "labels": ["dependencies", "renovate"],
-
   "schedule": ["after 3am and before 9am every weekday"],
 
   "dependencyDashboard": true,
@@ -18,22 +16,23 @@
     "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"]
   },
 
+  "labels": ["dependencies", "renovate"],
   "packageRules": [
     {
       "matchUpdateTypes": ["pin"],
-      "labels": ["bump: pin"]
+      "addLabels": ["pin"]
     },
     {
       "matchUpdateTypes": ["major"],
-      "labels": ["bump: major"]
+      "addLabels": ["major"]
     },
     {
       "matchUpdateTypes": ["minor"],
-      "labels": ["bump: minor"]
+      "addLabels": ["minor"]
     },
     {
       "matchUpdateTypes": ["patch"],
-      "labels": ["bump: patch"],
+      "addLabels": ["patch"],
       "automerge": true
     }
   ],
