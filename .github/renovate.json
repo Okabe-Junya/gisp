@@ -18,6 +18,26 @@
     "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"]
   },
 
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["pin"],
+      "labels": ["bump: pin"]
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "labels": ["bump: major"]
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "labels": ["bump: minor"]
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "labels": ["bump: patch"],
+      "automerge": true
+    }
+  ],
+
   "regexManagers": [
     {
       "fileMatch": [".*y[a]?ml$"],
