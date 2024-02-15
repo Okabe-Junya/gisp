@@ -1,18 +1,10 @@
 test:
-  - "**/*_test.go"
-  - "**/testdata/**"
-  - "**/test/**"
+  - changed-files:
+    - any-glob-to-any-file:
+      - "**/*_test.go"
+      - "**/testdata/**"
+      - "**/test/**"
 
 documentation:
-  - "**/*.md"
-  - "**/*.txt"
-
-dependencies:
-  - "**/go.mod"
-  - "**/go.sum"
-
-infrastructure:
-  - "**/Dockerfile"
-  - "**/docker-compose.yml"
-  - "**/Makefile"
-  - "**/scripts/**"
+  - changed-files:
+    - any-glob-to-any-file: ["**/*.md", "**/*.txt"]
